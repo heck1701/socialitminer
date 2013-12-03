@@ -1,3 +1,6 @@
+<?php
+require_once("inc/socialitminer-google-oauth.inc.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,12 +63,19 @@
 	    <div id="lCol" class="floatLeft">
 	      <ul>
 	        <li class="lcF"><h3>Pages Available</h3></li>
+<?php
+	if(isset($authUrl)) {
+		print "<li><a class='login' href='$authUrl'>Login</a></li>\n";
+	} else {
+?>
 				<li><a href="index.php">Home</a></li>
-				<li><a href="login.php">Login</a></li>
 				<li><a href="profile.php">Profile</a></li>
 				<li><a href="search.php">Search</a></li>
 				<li><a href="members.php">Members</a></li>
-				<li><a href="logout.php">Logout</a></li>
+				<li><a class='logout' href='?logout'>Logout</a></li>
+<?php
+	}
+?>
 	      </ul>
 	  
 	    </div>

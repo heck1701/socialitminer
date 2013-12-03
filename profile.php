@@ -1,9 +1,6 @@
-<?php
-	$UserName = $_GET['UserName'];		//TODO, should be current user's username, EXTRA: username from a post or the members list too?
-?>
 <?php include("header.php"); ?>
 <?php
-	echo '<p style="font-size:xx-large;">USERNAME</p>';
+	echo "<p style='font-size:xx-large;text-transform:uppercase;'>$dispname</p>";
 	
 	/* TODO, the following code doesn't run for me, but should grab the User's posts
 	$query = sprintf("SELECT Title, Body FROM Posts WHERE username=$UserName;");

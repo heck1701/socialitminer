@@ -1,4 +1,9 @@
-<?php include("header.php"); ?>
+<?php
+include("header.php");
+?>
+<?php if(isset($personMarkup)): ?>
+<?php print "Welcome $given_name" ?>
+<?php endif ?>
 <div id="tReqs"><label id="tRequests" style="font-size:xx-large;">Top Requests</label><ol></ol></div>
 <?php
 	/* TODO, the following code doesn't run for me, but should grab posts by Rating
