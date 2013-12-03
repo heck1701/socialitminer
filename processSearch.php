@@ -1,55 +1,44 @@
 <?php
 	$titlesearch = $_POST['titlesearch'];	//TODO, post is not transfering the values, but the if statment's are seeing some value
 	$UserSearch = $_POST['usersearch'];
+	$ws = "";
 ?>
-<?php include("header.php"); ?>
-<?php
-	if($titlesearch = ''){
-		$titlesearch = '*';
+<?php 
+include("header.php"); 
+	if($titlesearch != "" || $UserSearch != ""){
+		$ws .= "WHERE ";
 	}
-	if($UserSearch = ""){
-		$UserSearch = '*';
+	if($titlesearch != ""){
+		$ws .= "Title='$titlesearch'";
 	}
-	$query = sprintf("SELECT Title, Body FROM posts WHERE Title='%s' AND User='%s'",	//TODO double check schema names, I couldn't accesss the DB
-			 $titlesearch, 							//TODO replace with 	mysql_real_escape_string($TitleSearch),
-			 $UserSearch);			   				//TODO replace with 	mysql_real_escape_string($UserSearch));
-			 
-	$results = true; //TODO replace with 	mysql_query($query);
-	
-	if(!$results){
-		//TODO Add the following	 	$message  = 'Invalid query: ' . mysql_error() . "\n";
-		//TODO Add the following 		$message .= 'Whole query: ' . $query;
-		die($message);
+	if($titlesearch != "" && $UserSearch != ""){
+		$ws .= " AND ";
 	}
+	if($UserSearch != ""){
+		$ws .= "OwnerID='$UserSearch'";
+	}
+	$ws .= ";"; 
+
+	$query = sprintf("SELECT RequestID, Title, Body, Votes FROM Requests $ws");	
+
+	if($results = mysqli_query($sqllink,$query)) {
 	echo '<p style="font-size:xx-large;">Search Results</p>';
-	echo '<table>';
-	for($i=1;$i<6;$i++)
-	{
-		echo '<tr>';
-		echo '<td style="font-size:x-large;">TITLE #'.$i.'<td>';
-		echo '</tr>';
-		echo '<tr>';
-		echo '<td style="width:50em;">'."\t-\t".'BODY #'.$i." bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla......".'<td>';
-		echo '</tr>';
-		echo '<tr style="height:15px;"></tr>';
-	}
+	echo '<table class="reqlist">';
 	
-	/*	TODO - This needs to replace the above for loop
-	while($row = mysql_fetch_assoc($results)){
+	while($row = mysqli_fetch_assoc($results)){
 		echo '<tr>';
-		echo '<td style="font-size:x-large;">.$row['Title'].'<td>'; // TODO - Click on the title to go to the full post
+		echo '<td style="font-size:x-large;">'.$row['Title'].'<td>'; // TODO - Click on the title to go to the full post
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td style="width:50em;">'."\t-\t".$row['Body'];
 		echo '</tr>';
 		echo '<tr style="height:15px;"></tr>';
 	}
-	*/
 	
 	echo '</table>';
+	}
 	
-	
-	// TODO 	mysql_free_result($results);
+	//mysql_free_result($results);
 ?>
 
 <?php include("footer.php"); ?>
