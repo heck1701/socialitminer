@@ -42,3 +42,10 @@ t:22px;}
 #cFooter p a:hover {color:#5f6f7f;text-decoration:none;}
 .mug {border: 5px solid #cbcbd5;margin: 0 0 20px 20px;width: 300px;}
 .warn {color:red}
+
+table.reqlist {
+	table-layout: fixed;
+	width:100%;
+	border: solid black;
+}
+table.reqlist tr:nth-child(odd)		{ background-color:#eee; }

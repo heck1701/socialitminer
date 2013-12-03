@@ -73,7 +73,6 @@ $sqllink = mysqli_connect($mysqlhost,$mysqlusr,$mysqlpswd,$mysqldb) or die("Erro
 				<li><a href="index.php">Home</a></li>
 				<li><a href="profile.php">Profile</a></li>
 				<li><a href="search.php">Search</a></li>
-				<li><a href="members.php">Members</a></li>
 				<li><a class='logout' href='?logout'>Logout</a></li>
 <?php
 	}

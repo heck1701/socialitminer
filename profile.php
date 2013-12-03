@@ -1,37 +1,24 @@
-<?php include("header.php"); ?>
 <?php
-	echo "<p style='font-size:xx-large;text-transform:uppercase;'>$dispname</p>";
+include("header.php");
+
+echo "<p style='font-size:xx-large;text-transform:uppercase;'>$dispname</p>";
 	
-	/* TODO, the following code doesn't run for me, but should grab the User's posts
-	$query = sprintf("SELECT Title, Body FROM Posts WHERE username=$email;");
-	$results = mysql_query($query);
-	*/
-	
-	echo '<table>';
-	for($i=1;$i<5;$i++)
-	{
+$query = sprintf("SELECT RequestID, Title, Body, Votes FROM Requests WHERE OwnerID='$username';");
+if($results = mysqli_query($sqllink,$query)) {
+	echo '<table class="reqlist">';
+	while($row = mysqli_fetch_assoc($results)){
 		echo '<tr>';
-		echo '<td style="font-size:x-large;">TITLE #'.$i.'<td>';
+		echo '<td style="font-size:x-large;">'.$row['Title'].'</td>'; // TODO - Click on the title to go to the full post
+		echo '<td style="text-align: right;">Votes:&nbsp;'.$row['Votes'].'</td>';
 		echo '</tr>';
 		echo '<tr>';
-		echo '<td style="width:50em;">'."\t-\t".'BODY #'.$i." bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla......".'<td>';
+		echo '<td colspan="2">'.$row['Body'].'</td>';
 		echo '</tr>';
-		echo '<tr style="height:15px;"></tr>';
 	}
-	
-	/*	TODO - This needs to replace the above for loop
-	while($row = mysql_fetch_assoc($results)){
-		echo '<tr>';
-		echo '<td style="font-size:x-large;">.$row['Title'].'<td>'; // TODO - Click on the title to go to the full post
-		echo '</tr>';
-		echo '<tr>';
-		echo '<td style="width:50em;">'."\t-\t".$row['Body'];
-		echo '</tr>';
-		echo '<tr style="height:15px;"></tr>';
-	}
-	*/
-	
-	
 	echo '</table>';
+}
+else {
+	echo 'No requests';
+}
+include("footer.php");
 ?>
-<?php include("footer.php"); ?>
