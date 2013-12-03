@@ -1,5 +1,5 @@
 <?php
-	$UserName = $_GET['UserName'];		//TODO, should be current user's username, EXTRA: username from a post or the members list too?
+	$UserName = $_GET['UserName'];		//TODO, should be current user's username, EXTRA: username from a post or the members list too?, doesn't need to be secure so GET
 ?>
 <?php include("header.php"); ?>
 <?php
