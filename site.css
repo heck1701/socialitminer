@@ -1,26 +1,44 @@
-ul#menu
-{
-padding: 0px;
-position: relative;
-margin: 0;
-}
-
-ul#menu li
-{
-display: inline;
-}
-
-ul#menu li a 
-{
-background-color: #ffffff;
-padding: 10px 20px;
-text-decoration: none;
-line-height: 2.8em;
-color: #034af3;
-border-radius: 4px 4px 0 0;
-}
-
-ul#menu li a:hover
-{
-background-color: #e8eef4;
-}
+body {background: #eef1f8;font-family:"Lucida Sans", Arial, sans-serif;margin: 0;padding: 0;}
+a:link, a:visited  {color: #cc6633;text-decoration:none;}
+a:hover, a:active {text-decoration:underline;}
+ul, ol {margin: 0;padding: 0 0 1.25em 2.5em;list-style: none;}
+#control_buttons {background: #5e697d;padding: 0;}
+#page {background: #eef1f8 url(img/background_body.jpg) repeat-x;}
+#all_content {margin: 0 auto;}
+#header {height: 74px;overflow: hidden;padding-top: 26px;}
+.levelH {padding:16px 0 0;margin:0 auto;}
+.levelH .logo {float:left;margin-left:30px;}
+#hcRight {width:500px;font-size:11px;color:#999;margin-right:30px}
+#hcRight a {color:#ccc;}
+#hcRight span {display:block;text-align:right;}
+#hcRight span a {text-decoration:underline !important;}
+#hcRight span a:hover {text-decoration:none !important;}
+#hcRight form {margin:0;padding:0;}
+#hcRight ul {list-style:none;margin:0;padding:0 0 3px;}
+#hcRight li {display:inline;font-size:10px;padding:0 5px;margin:0;border-left:1px solid #6b7b8b;float:left;}
+#hcRight li a {color:#ccc !important;padding:0;text-decoration:underline !important;}
+#hcRight li a:hover {text-decoration:none !important;}
+#hcRight .noB {border:0 none !important;margin:0;padding:0;}
+.hcrFirst {padding-left:0 !important;border:0 none !important;}
+.searchText {border:1px solid #6b7b8b;color:#6b7b8b;margin:0;padding:1px 3px;font-size:9px;width:94px;margin:-2px 5px 0 3px;}
+.searchBtn {margin: 0;padding:1px 2px;background-color:#6b7b8b;color:#fff;font-size:9px;border:0 none;}
+#lCol {border-bottom-left-radius:5px;border-bottom-right-radius:5px;margin-left:30px;padding-bottom:15px;width:200px;border-top:
+5px solid #c1c1c3;background-color:#cbcbd5;font-size: 12px;}
+#lCol h3 {font-size:12px;margin: 0;padding: .5em;text-transform: uppercase;}
+#lCol ul {margin:0;padding:0 10px;}
+#lCol li {color:#425262;text-transform:uppercase;font-size:10px;padding:3px 0px 3px 6px;margin:5px 0;}
+#lCol li.lcF {color:#425262;text-transform:uppercase;font-size:11px;padding:12px 0px 0px 0px;margin:5px 0;border:0 none;}
+#lCol li span {font-weight: bold;display: block;}
+#lCol li a:hover, #lCol li a:active, #lCol li .activeMenu {text-decoration: underline;}
+#rCol {border-top:5px solid #eaeaeb;background-color:#fff;margin:0 30px 0 235px;padding:0}
+#content {background:url(img/watermark.gif) no-repeat right bottom;border-bottom:5px solid #eaeaeb;color:#343e48;font-size:1
+2px;padding:20px 30px 60px;margin:0;}
+#content ul {margin:0;padding:0 0 10px 20px;}
+#content ul li {background:url(img/li_bg.gif) no-repeat 0 7px;padding:0 0 0 10px;margin:0;}
+#cFooter {font-size:10px;color:#5f6f7f;text-align:center;}
+#cFooter p {border-bottom-left-radius:5px;border-bottom-right-radius:5px;background-color:#CBCBD5;margin:0;padding:8px 0 0;heigh
+t:22px;}
+#cFooter p a {color:#5f6f7f;text-decoration:underline;}
+#cFooter p a:hover {color:#5f6f7f;text-decoration:none;}
+.mug {border: 5px solid #cbcbd5;margin: 0 0 20px 20px;width: 300px;}
+.warn {color:red}
