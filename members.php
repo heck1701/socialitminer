@@ -27,6 +27,7 @@
 		if($counter%5 == 4){		//triggers on 4,9,14...ect..
 			echo '</tr>'
 		}
+		$counter++;
 	}
 	*/
 	
