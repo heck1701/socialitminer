@@ -1,20 +1,29 @@
-<<<<<<< HEAD
-=======
 <?php
-	$UserName = $_GET['UserName'];		//TODO, should be current user's username, EXTRA: username from a post or the members list too?, doesn't need to be secure so GET
+	$titlesearch = $_POST['titlesearch'];	//TODO, post is not transfering the values, but the if statment's are seeing some value
+	$UserSearch = $_POST['usersearch'];
 ?>
->>>>>>> 789168a402c643c7d4c357a83d193e8399a5fc9a
 <?php include("header.php"); ?>
 <?php
-	echo "<p style='font-size:xx-large;text-transform:uppercase;'>$dispname</p>";
+	if($titlesearch = ''){
+		$titlesearch = '*';
+	}
+	if($UserSearch = ""){
+		$UserSearch = '*';
+	}
+	$query = sprintf("SELECT Title, Body FROM posts WHERE Title='%s' AND User='%s'",	//TODO double check schema names, I couldn't accesss the DB
+			 $titlesearch, 							//TODO replace with 	mysql_real_escape_string($TitleSearch),
+			 $UserSearch);			   				//TODO replace with 	mysql_real_escape_string($UserSearch));
+			 
+	$results = true; //TODO replace with 	mysql_query($query);
 	
-	/* TODO, the following code doesn't run for me, but should grab the User's posts
-	$query = sprintf("SELECT Title, Body FROM Posts WHERE username=$UserName;");
-	$results = mysql_query($query);
-	*/
-	
+	if(!$results){
+		//TODO Add the following	 	$message  = 'Invalid query: ' . mysql_error() . "\n";
+		//TODO Add the following 		$message .= 'Whole query: ' . $query;
+		die($message);
+	}
+	echo '<p style="font-size:xx-large;">Search Results</p>';
 	echo '<table>';
-	for($i=1;$i<5;$i++)
+	for($i=1;$i<6;$i++)
 	{
 		echo '<tr>';
 		echo '<td style="font-size:x-large;">TITLE #'.$i.'<td>';
@@ -37,7 +46,10 @@
 	}
 	*/
 	
-	
 	echo '</table>';
+	
+	
+	// TODO 	mysql_free_result($results);
 ?>
+
 <?php include("footer.php"); ?>
