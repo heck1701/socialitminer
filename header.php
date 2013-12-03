@@ -1,5 +1,7 @@
 <?php
 require_once("inc/socialitminer-google-oauth.inc.php");
+require_once("inc/sqlauth.php");
+$sqllink = mysqli_connect($mysqlhost,$mysqlusr,$mysqlpswd,$mysqldb) or die("Error " . mysqli_error($sqllink));
 ?>
 <!DOCTYPE html>
 <html>
