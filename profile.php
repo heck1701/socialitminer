@@ -21,6 +21,7 @@ if(isset($personMarkup)) {
 	else {
 		echo 'No requests';
 	}
+}
 else {
 	echo "Not logged in!";
 }
